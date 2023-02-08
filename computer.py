@@ -28,14 +28,32 @@ class Computer:
     
     # What methods will you need?
     def refurbish(self, year_made: int, new_os = None) -> None:
+        #Updates price based on year made and updates operating system if one is given 
         if self.year_made < 2000:
-            self.price = 0 # too old to sell, donation only
+            self.price = 0 
         elif self.year_made < 2012:
-            self.price = 250 # heavily-discounted price on machines 10+ years old
+            self.price = 250 
         elif self.year_made < 2018:
-            self.price = 550 # discounted price on machines 4-to-10 year old machines
+            self.price = 550 
         else:
-            self.price = 1000 # recent stuff
+            self.price = 1000 
         
         if new_os is not None:
             self.operating_system = new_os
+
+    def update_price(self, new_price: int):
+        #Updates price
+        if new_price: 
+            self.price = new_price
+            print("The", self.description,"now costs", self.price)
+        else:
+            print("No new price was given")
+
+    def update_operating_system(self, new_operating_system: str):
+        #Updates operating system
+        if new_operating_system:
+            self.operating_system = new_operating_system
+            print("The", self.description,"is now running", self.operating_system)
+        else:
+            print("No new operating system was given")
+
